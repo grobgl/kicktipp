@@ -3,6 +3,7 @@ from functools import cached_property
 from typing import Iterator
 
 import numpy as np
+import seaborn as sns
 
 
 class OddsUtils:
@@ -73,6 +74,10 @@ class OddsUtils:
             if not home_odds:
                 home, away = away, home
             yield (home, away), float(factor)
+
+
+def plot(matrix: np.array):
+    sns.heatmap(matrix, cmap="Blues")
 
 
 test_input = """
